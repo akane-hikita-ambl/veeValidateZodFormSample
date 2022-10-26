@@ -1,0 +1,19 @@
+.inputError {
+  border: 1px solid #d32f2f;
+  background: rgb(211 47 47 / 10%);
+}
+.validteError {
+  text-align: left;
+  grid-column: 2;
+  height: 1rem;
+}
+.warning {
+  color: #d32f2f;
+}
+
+@media (max-width: 480px) {
+  .validteError {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
