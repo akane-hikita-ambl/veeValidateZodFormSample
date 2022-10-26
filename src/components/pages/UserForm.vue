@@ -6,6 +6,7 @@ import FormTextField from '@/components/forms/FormTextField.vue';
 import FormRadioButton from '@/components/forms/FormRadioButton.vue';
 import Label from '@/components/atoms/Label.vue';
 import { UserFormSchema } from '@/components/models/UserFormSchema';
+import FormCheckBox from '../forms/FormCheckBox.vue';
 
 export type UserFormValues = zod.infer<typeof UserFormSchema>;
 const validationSchema = toFormValidator(UserFormSchema);
@@ -59,6 +60,41 @@ const onSubmit = handleSubmit((formValues) => {
         </div>
       </div>
       <div class="formRowContainer">
+        <Label label="興味関心" />
+        <div class="flexContainer">
+          <FormCheckBox name="interest" value="vue">
+            <template #checkLabel>
+              <span>Vue3</span>
+            </template>
+          </FormCheckBox>
+          <FormCheckBox name="interest" value="react">
+            <template #checkLabel>
+              <span>React</span>
+            </template>
+          </FormCheckBox>
+          <FormCheckBox name="interest" value="angular">
+            <template #checkLabel>
+              <span>Angular</span>
+            </template>
+          </FormCheckBox>
+          <FormCheckBox name="interest" value="ts">
+            <template #checkLabel>
+              <span>TypeScript</span>
+            </template>
+          </FormCheckBox>
+          <FormCheckBox name="interest" value="nuxt">
+            <template #checkLabel>
+              <span>Nuxt.js</span>
+            </template>
+          </FormCheckBox>
+          <FormCheckBox name="interest" value="next">
+            <template #checkLabel>
+              <span>Next.js</span>
+            </template>
+          </FormCheckBox>
+        </div>
+      </div>
+      <div class="formRowContainer">
         <Label label="メールアドレス" />
         <FormTextField name="email" placeholder="test@example.co.jp" />
       </div>
@@ -80,7 +116,7 @@ div.formRowContainer {
 }
 div.flexContainer {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 label {
   text-align: left;

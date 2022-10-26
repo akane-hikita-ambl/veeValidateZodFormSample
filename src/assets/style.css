@@ -1,3 +1,10 @@
+div.colmunContainer {
+  display: flex;
+  margin-right: 0.5rem;
+}
+div.colmunContainer > input {
+  margin-right: 0.25rem;
+}
 .inputError {
   border: 1px solid #d32f2f;
   background: rgb(211 47 47 / 10%);
