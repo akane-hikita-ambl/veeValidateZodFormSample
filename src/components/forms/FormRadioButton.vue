@@ -17,14 +17,8 @@ const { value } = useField<string>(nameRef, props.rules, props.fieldOptions);
 </script>
 
 <template>
-  <div class="radioContainer">
+  <div class="colmunContainer">
     <RadioButton v-model="value" :value="props.value" />
     <slot name="radioLabel" />
   </div>
 </template>
-
-<style scoped>
-div.radioContainer {
-  display: flex;
-}
-</style>
