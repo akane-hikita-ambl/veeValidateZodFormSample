@@ -59,34 +59,34 @@ const onSubmit = handleSubmit((formValues) => {
       </FormContentGroup>
 
       <FormContentGroup name="interest" label="興味関心">
-        <FormCheckBox name="interest" value="vue">
+        <FormCheckBox name="interest" value="vue" id="vue">
           <template #checkLabel>
-            <span>Vue3</span>
+            <Label label="Vue3" for="vue" />
           </template>
         </FormCheckBox>
-        <FormCheckBox name="interest" value="react">
+        <FormCheckBox name="interest" value="react" id="react">
           <template #checkLabel>
-            <span>React</span>
+            <Label label="React" for="react" />
           </template>
         </FormCheckBox>
-        <FormCheckBox name="interest" value="angular">
+        <FormCheckBox name="interest" value="angular" id="angular">
           <template #checkLabel>
-            <span>Angular</span>
+            <Label label="Angular" for="angular" />
           </template>
         </FormCheckBox>
-        <FormCheckBox name="interest" value="ts">
+        <FormCheckBox name="interest" value="ts" id="ts">
           <template #checkLabel>
-            <span>TypeScript</span>
+            <Label label="TypeScript" for="ts" />
           </template>
         </FormCheckBox>
-        <FormCheckBox name="interest" value="nuxt">
+        <FormCheckBox name="interest" value="nuxt" id="nuxt">
           <template #checkLabel>
-            <span>Nuxt.js</span>
+            <Label label="Nuxt.js" for="nuxt" />
           </template>
         </FormCheckBox>
         <FormCheckBox name="interest" value="next">
           <template #checkLabel>
-            <span>Next.js</span>
+            <Label label="Next.js" for="next" />
           </template>
         </FormCheckBox>
       </FormContentGroup>
