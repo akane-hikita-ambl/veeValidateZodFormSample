@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import ErrorMessage from '@/components/atoms/ErrorMessage.vue';
-
 const props = defineProps<{
   modelValue: string; // v-modelプロパティ
-  errorMessage?: string;
 }>();
 
 // v-modelに変更があったことを伝えるイベントの定義
@@ -26,12 +23,5 @@ export default {
 </script>
 
 <template>
-  <input
-    type="text"
-    v-bind="$attrs"
-    :value="props.modelValue"
-    @input="handleChange"
-    :class="{ inputError: props.errorMessage }"
-  />
-  <ErrorMessage :errorMessage="props.errorMessage" />
+  <input type="text" v-bind="$attrs" :value="props.modelValue" @input="handleChange" />
 </template>

@@ -10,9 +10,9 @@ const props = defineProps<{
   rules?: UseFieldArgs[1];
 }>();
 const nameRef = toRef(props, 'name');
-const { value, errorMessage } = useField<string>(nameRef, props.rules);
+const { value } = useField<string>(nameRef, props.rules);
 </script>
 
 <template>
-  <TextField v-model="value" :errorMessage="errorMessage" />
+  <TextField v-model="value" />
 </template>

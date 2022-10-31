@@ -7,7 +7,7 @@ import FormRadioButton from '@/components/forms/FormRadioButton.vue';
 import Label from '@/components/atoms/Label.vue';
 import { UserFormSchema } from '@/components/models/UserFormSchema';
 import FormCheckBox from '../forms/FormCheckBox.vue';
-import FormRadioGroup from '../forms/FormRadioGroup.vue';
+import FormContentGroup from '../forms/FormContentGroup.vue';
 
 export type UserFormValues = zod.infer<typeof UserFormSchema>;
 const validationSchema = toFormValidator(UserFormSchema);
@@ -32,73 +32,69 @@ const onSubmit = handleSubmit((formValues) => {
 <template>
   <div>
     <form @submit="onSubmit">
-      <div class="formRowContainer">
-        <Label label="名前" />
+      <FormContentGroup label="名前" name="name">
         <FormTextField name="name" placeholder="野村 太郎" />
-      </div>
-      <div class="formRowContainer">
-        <Label label="ユーザー名" />
+      </FormContentGroup>
+
+      <FormContentGroup label="ユーザー名" name="userName">
         <FormTextField name="userName" placeholder="nomura_taro" />
-      </div>
-      <div class="formRowContainer">
-        <Label label="性別" />
-        <FormRadioGroup name="gender">
-          <FormRadioButton name="gender" value="0" id="genderMale">
-            <template #radioLabel>
-              <Label label="男性" for="genderMale" />
-            </template>
-          </FormRadioButton>
-          <FormRadioButton name="gender" value="1" id="genderFemale">
-            <template #radioLabel>
-              <Label label="女性" for="genderFemale" />
-            </template>
-          </FormRadioButton>
-          <FormRadioButton name="gender" value="2" id="genderOther">
-            <template #radioLabel>
-              <Label label="その他" for="genderOther" />
-            </template>
-          </FormRadioButton>
-        </FormRadioGroup>
-      </div>
-      <div class="formRowContainer">
-        <Label label="興味関心" />
-        <div>
-          <FormCheckBox name="interest" value="vue">
-            <template #checkLabel>
-              <span>Vue3</span>
-            </template>
-          </FormCheckBox>
-          <FormCheckBox name="interest" value="react">
-            <template #checkLabel>
-              <span>React</span>
-            </template>
-          </FormCheckBox>
-          <FormCheckBox name="interest" value="angular">
-            <template #checkLabel>
-              <span>Angular</span>
-            </template>
-          </FormCheckBox>
-          <FormCheckBox name="interest" value="ts">
-            <template #checkLabel>
-              <span>TypeScript</span>
-            </template>
-          </FormCheckBox>
-          <FormCheckBox name="interest" value="nuxt">
-            <template #checkLabel>
-              <span>Nuxt.js</span>
-            </template>
-          </FormCheckBox>
-          <FormCheckBox name="interest" value="next">
-            <template #checkLabel>
-              <span>Next.js</span>
-            </template>
-          </FormCheckBox>
-        </div>
-      </div>
-      <div class="formRowContainer">
-        <Label label="メールアドレス" />
+      </FormContentGroup>
+
+      <FormContentGroup label="性別" name="gender">
+        <FormRadioButton name="gender" value="0" id="genderMale">
+          <template #radioLabel>
+            <Label label="男性" for="genderMale" />
+          </template>
+        </FormRadioButton>
+        <FormRadioButton name="gender" value="1" id="genderFemale">
+          <template #radioLabel>
+            <Label label="女性" for="genderFemale" />
+          </template>
+        </FormRadioButton>
+        <FormRadioButton name="gender" value="2" id="genderOther">
+          <template #radioLabel>
+            <Label label="その他" for="genderOther" />
+          </template>
+        </FormRadioButton>
+      </FormContentGroup>
+
+      <FormContentGroup name="interest" label="興味関心">
+        <FormCheckBox name="interest" value="vue">
+          <template #checkLabel>
+            <span>Vue3</span>
+          </template>
+        </FormCheckBox>
+        <FormCheckBox name="interest" value="react">
+          <template #checkLabel>
+            <span>React</span>
+          </template>
+        </FormCheckBox>
+        <FormCheckBox name="interest" value="angular">
+          <template #checkLabel>
+            <span>Angular</span>
+          </template>
+        </FormCheckBox>
+        <FormCheckBox name="interest" value="ts">
+          <template #checkLabel>
+            <span>TypeScript</span>
+          </template>
+        </FormCheckBox>
+        <FormCheckBox name="interest" value="nuxt">
+          <template #checkLabel>
+            <span>Nuxt.js</span>
+          </template>
+        </FormCheckBox>
+        <FormCheckBox name="interest" value="next">
+          <template #checkLabel>
+            <span>Next.js</span>
+          </template>
+        </FormCheckBox>
+      </FormContentGroup>
+
+      <FormContentGroup name="email" label="メールアドレス">
         <FormTextField name="email" placeholder="test@example.co.jp" />
-      </div>
+      </FormContentGroup>
+
       <button type="submit">送信</button>
     </form>
   </div>
