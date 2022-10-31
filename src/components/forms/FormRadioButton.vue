@@ -8,6 +8,7 @@ type UseFieldArgs = Parameters<typeof useField<string>>;
 const props = defineProps<{
   name: string;
   value: string;
+  id?: string;
   rules?: UseFieldArgs[1];
   fieldOptions?: UseFieldArgs[2];
 }>();
@@ -18,7 +19,7 @@ const { value } = useField<string>(nameRef, props.rules, props.fieldOptions);
 
 <template>
   <div class="colmunContainer">
-    <RadioButton v-model="value" :value="props.value" />
+    <RadioButton v-model="value" :value="props.value" :id="props.id" />
     <slot name="radioLabel" />
   </div>
 </template>

@@ -43,19 +43,19 @@ const onSubmit = handleSubmit((formValues) => {
       <div class="formRowContainer">
         <Label label="性別" />
         <FormRadioGroup name="gender">
-          <FormRadioButton name="gender" value="0">
+          <FormRadioButton name="gender" value="0" id="genderMale">
             <template #radioLabel>
-              <span>男性</span>
+              <Label label="男性" for="genderMale" />
             </template>
           </FormRadioButton>
-          <FormRadioButton name="gender" value="1">
+          <FormRadioButton name="gender" value="1" id="genderFemale">
             <template #radioLabel>
-              <span>女性</span>
+              <Label label="女性" for="genderFemale" />
             </template>
           </FormRadioButton>
-          <FormRadioButton name="gender" value="2">
+          <FormRadioButton name="gender" value="2" id="genderOther">
             <template #radioLabel>
-              <span>その他</span>
+              <Label label="その他" for="genderOther" />
             </template>
           </FormRadioButton>
         </FormRadioGroup>
