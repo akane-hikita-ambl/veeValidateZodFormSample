@@ -84,7 +84,7 @@ const onSubmit = handleSubmit((formValues) => {
             <Label label="Nuxt.js" for="nuxt" />
           </template>
         </FormCheckBox>
-        <FormCheckBox name="interest" value="next">
+        <FormCheckBox name="interest" value="next" id="next">
           <template #checkLabel>
             <Label label="Next.js" for="next" />
           </template>
