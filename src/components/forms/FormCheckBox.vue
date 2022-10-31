@@ -3,6 +3,7 @@ import { useField } from 'vee-validate';
 import { toRef } from 'vue';
 import CheckBox from '@/components/atoms/CheckBox.vue';
 
+// useFieldの引数で使用される型からタプル型を構築
 type UseFieldArgs = Parameters<typeof useField<string | boolean>>;
 
 const props = defineProps<{
