@@ -15,10 +15,13 @@ const { errorMessage } = useField<string>(nameRef);
 
 <template>
   <div class="formRowContainer">
+    <!-- フォーム項目見出し -->
     <Label :label="props.label" />
     <div class="flexContainer">
+      <!-- フォーム要素 -->
       <slot />
     </div>
+    <!-- バリデーションエラーメッセージ -->
     <ErrorMessage :errorMessage="errorMessage" />
   </div>
 </template>
