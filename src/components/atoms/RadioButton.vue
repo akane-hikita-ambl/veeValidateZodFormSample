@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import ErrorMessage from '@/components/atoms/ErrorMessage.vue';
 
 const props = defineProps<{
   value: string;
@@ -31,5 +30,4 @@ export default {
 
 <template>
   <input type="radio" :value="props.value" :checked="isChecked" @change="handleChange" v-bind="$attrs" />
-  <ErrorMessage :errorMessage="props.errorMessage" />
 </template>

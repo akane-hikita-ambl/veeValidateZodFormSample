@@ -13,12 +13,12 @@ const props = defineProps<{
 }>();
 
 const nameRef = toRef(props, 'name');
-const { value, errorMessage } = useField<string>(nameRef, props.rules, props.fieldOptions);
+const { value } = useField<string>(nameRef, props.rules, props.fieldOptions);
 </script>
 
 <template>
   <div class="colmunContainer">
-    <RadioButton v-model="value" :value="props.value" :errorMessage="errorMessage" />
+    <RadioButton v-model="value" :value="props.value" />
     <slot name="radioLabel" />
   </div>
 </template>

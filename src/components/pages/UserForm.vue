@@ -7,6 +7,7 @@ import FormRadioButton from '@/components/forms/FormRadioButton.vue';
 import Label from '@/components/atoms/Label.vue';
 import { UserFormSchema } from '@/components/models/UserFormSchema';
 import FormCheckBox from '../forms/FormCheckBox.vue';
+import FormRadioGroup from '../forms/FormRadioGroup.vue';
 
 export type UserFormValues = zod.infer<typeof UserFormSchema>;
 const validationSchema = toFormValidator(UserFormSchema);
@@ -41,7 +42,7 @@ const onSubmit = handleSubmit((formValues) => {
       </div>
       <div class="formRowContainer">
         <Label label="性別" />
-        <div class="flexContainer">
+        <FormRadioGroup name="gender">
           <FormRadioButton name="gender" value="0">
             <template #radioLabel>
               <span>男性</span>
@@ -57,11 +58,11 @@ const onSubmit = handleSubmit((formValues) => {
               <span>その他</span>
             </template>
           </FormRadioButton>
-        </div>
+        </FormRadioGroup>
       </div>
       <div class="formRowContainer">
         <Label label="興味関心" />
-        <div class="flexContainer">
+        <div>
           <FormCheckBox name="interest" value="vue">
             <template #checkLabel>
               <span>Vue3</span>
@@ -108,15 +109,10 @@ form {
   display: grid;
   grid-row-gap: 2rem;
 }
-
 div.formRowContainer {
   display: grid;
   grid-template-columns: 1fr 20rem;
   grid-column-gap: 1rem;
-}
-div.flexContainer {
-  display: flex;
-  flex-wrap: wrap;
 }
 label {
   text-align: left;
