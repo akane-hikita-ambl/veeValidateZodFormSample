@@ -10,6 +10,9 @@ export const UserFormSchema = zod.object({
     })
     .min(5, { message: '5文字以上で入力してください' })
     .max(15, { message: '15文字以内で入力してください' }),
-  gender: zod.nativeEnum(Gender),
+  gender: zod.nativeEnum(Gender, {
+    required_error: '必須項目です',
+    invalid_type_error: '選択値に誤りがあります',
+  }),
   email: zod.string({ required_error: '必須項目です' }).email({ message: 'メールアドレスの形式で入力してください' }),
 });

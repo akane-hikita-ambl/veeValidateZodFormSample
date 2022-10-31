@@ -4,6 +4,7 @@ import { computed } from 'vue';
 const props = defineProps<{
   value: string;
   modelValue: string;
+  errorMessage?: string;
 }>();
 
 const isChecked = computed(() => props.modelValue === props.value);
