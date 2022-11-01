@@ -15,9 +15,8 @@ export const UserFormSchema = zod.object({
     required_error: '必須項目です',
     invalid_type_error: '選択値に誤りがあります',
   }),
-  interest: zod.nativeEnum(INTEREST, {
-    required_error: '必須項目です',
-    invalid_type_error: '選択値に誤りがあります',
+  interest: zod.string().array().min(1, {
+    message: '必須項目です。',
   }),
   email: zod.string({ required_error: '必須項目です' }).email({ message: 'メールアドレスの形式で入力してください' }),
 });
