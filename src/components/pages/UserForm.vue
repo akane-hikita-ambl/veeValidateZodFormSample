@@ -6,8 +6,9 @@ import FormTextField from '@/components/forms/FormTextField.vue';
 import FormRadioButton from '@/components/forms/FormRadioButton.vue';
 import Label from '@/components/atoms/Label.vue';
 import { UserFormSchema } from '@/components/models/UserFormSchema';
-import FormCheckBox from '../forms/FormCheckBox.vue';
-import FormContentGroup from '../forms/FormContentGroup.vue';
+import FormCheckBox from '@/components/forms/FormCheckBox.vue';
+import FormContentGroup from '@/components/forms/FormContentGroup.vue';
+import { GENDER_ITEM } from '@/components/enums/Gender';
 
 export type UserFormValues = zod.infer<typeof UserFormSchema>;
 const validationSchema = toFormValidator(UserFormSchema);
@@ -41,19 +42,9 @@ const onSubmit = handleSubmit((formValues) => {
       </FormContentGroup>
 
       <FormContentGroup label="性別" name="gender">
-        <FormRadioButton name="gender" value="0" id="genderMale">
+        <FormRadioButton v-for="item in GENDER_ITEM" name="gender" :value="item.value" :id="item.id">
           <template #radioLabel>
-            <Label label="男性" for="genderMale" />
-          </template>
-        </FormRadioButton>
-        <FormRadioButton name="gender" value="1" id="genderFemale">
-          <template #radioLabel>
-            <Label label="女性" for="genderFemale" />
-          </template>
-        </FormRadioButton>
-        <FormRadioButton name="gender" value="2" id="genderOther">
-          <template #radioLabel>
-            <Label label="その他" for="genderOther" />
+            <Label :label="item.label" :for="item.id" />
           </template>
         </FormRadioButton>
       </FormContentGroup>
