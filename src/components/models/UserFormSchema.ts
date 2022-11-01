@@ -1,5 +1,6 @@
 import * as zod from 'zod';
 import { GENDER } from '@/components/enums/Gender';
+import { INTEREST } from '@/components/enums/Interest';
 
 export const UserFormSchema = zod.object({
   name: zod.string().max(15, { message: '15文字以内で入力してください' }).optional(),
@@ -11,6 +12,10 @@ export const UserFormSchema = zod.object({
     .min(5, { message: '5文字以上で入力してください' })
     .max(15, { message: '15文字以内で入力してください' }),
   gender: zod.nativeEnum(GENDER, {
+    required_error: '必須項目です',
+    invalid_type_error: '選択値に誤りがあります',
+  }),
+  interest: zod.nativeEnum(INTEREST, {
     required_error: '必須項目です',
     invalid_type_error: '選択値に誤りがあります',
   }),
