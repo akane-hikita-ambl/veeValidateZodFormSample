@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useField } from 'vee-validate';
+import { useFieldError } from 'vee-validate';
 import { toRef } from 'vue';
 import Label from '@/components/atoms/Label.vue';
 import ErrorMessage from '@/components/atoms/ErrorMessage.vue';
@@ -10,7 +10,7 @@ const props = defineProps<{
 }>();
 
 const nameRef = toRef(props, 'name');
-const { errorMessage } = useField<string>(nameRef);
+const errorMessage = useFieldError(nameRef);
 </script>
 
 <template>
