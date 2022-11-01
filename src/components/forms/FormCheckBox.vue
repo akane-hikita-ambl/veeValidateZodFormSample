@@ -4,7 +4,7 @@ import { toRef } from 'vue';
 import CheckBox from '@/components/atoms/CheckBox.vue';
 
 // useFieldの引数で使用される型からタプル型を構築
-type UseFieldArgs = Parameters<typeof useField<string | boolean>>;
+type UseFieldArgs = Parameters<typeof useField<string | boolean | string[]>>;
 
 const props = defineProps<{
   name: string;
@@ -14,8 +14,9 @@ const props = defineProps<{
 }>();
 
 const nameRef = toRef(props, 'name');
-const { value } = useField<string | boolean>(nameRef, props.rules, {
+const { value } = useField<string | boolean | string[]>(nameRef, props.rules, {
   ...props.fieldOptions,
+  initialValue: [],
   type: 'checkbox',
   checkedValue: props.value,
 });
