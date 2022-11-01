@@ -13,6 +13,7 @@ const props = defineProps<{
   fieldOptions?: UseFieldArgs[2];
 }>();
 
+// オブジェクト（props）に対して、keyにnameをもつリアクティブオブジェクトを作成する
 const nameRef = toRef(props, 'name');
 const { value } = useField<string | boolean>(nameRef, props.rules, {
   ...props.fieldOptions,
