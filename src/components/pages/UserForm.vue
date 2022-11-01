@@ -9,6 +9,7 @@ import { UserFormSchema } from '@/components/models/UserFormSchema';
 import FormCheckBox from '@/components/forms/FormCheckBox.vue';
 import FormContentGroup from '@/components/forms/FormContentGroup.vue';
 import { GENDER_ITEM } from '@/components/enums/Gender';
+import { INTEREST } from '@/components/enums/Interest';
 
 export type UserFormValues = zod.infer<typeof UserFormSchema>;
 const validationSchema = toFormValidator(UserFormSchema);
@@ -50,34 +51,9 @@ const onSubmit = handleSubmit((formValues) => {
       </FormContentGroup>
 
       <FormContentGroup name="interest" label="興味関心">
-        <FormCheckBox name="interest" value="vue" id="vue">
+        <FormCheckBox v-for="(item, key) in INTEREST" name="interest" :value="key" :id="key">
           <template #checkLabel>
-            <Label label="Vue3" for="vue" />
-          </template>
-        </FormCheckBox>
-        <FormCheckBox name="interest" value="react" id="react">
-          <template #checkLabel>
-            <Label label="React" for="react" />
-          </template>
-        </FormCheckBox>
-        <FormCheckBox name="interest" value="angular" id="angular">
-          <template #checkLabel>
-            <Label label="Angular" for="angular" />
-          </template>
-        </FormCheckBox>
-        <FormCheckBox name="interest" value="ts" id="ts">
-          <template #checkLabel>
-            <Label label="TypeScript" for="ts" />
-          </template>
-        </FormCheckBox>
-        <FormCheckBox name="interest" value="nuxt" id="nuxt">
-          <template #checkLabel>
-            <Label label="Nuxt.js" for="nuxt" />
-          </template>
-        </FormCheckBox>
-        <FormCheckBox name="interest" value="next" id="next">
-          <template #checkLabel>
-            <Label label="Next.js" for="next" />
+            <Label :label="item" :for="key" />
           </template>
         </FormCheckBox>
       </FormContentGroup>
