@@ -9,12 +9,16 @@ type UseFieldArgs = Parameters<typeof useField<string | boolean>>;
 const props = defineProps<{
   name: string;
   value: string | boolean;
+  // バリデーションルール
   rules?: UseFieldArgs[1];
+  // フィールドの設定
+  // 詳細はhttps://vee-validate.logaretm.com/v4/api/use-field#typescript-definition FieldOptions参照
   fieldOptions?: UseFieldArgs[2];
 }>();
 
-// オブジェクト（props）に対して、keyにnameをもつリアクティブオブジェクトを作成する
+// keyにname,valueにオブジェクト（props）をもつリアクティブオブジェクトを作成する
 const nameRef = toRef(props, 'name');
+// useField:第一引数はフィールド名。返り値はリアクティブなvalue
 const { value } = useField<string | boolean>(nameRef, props.rules, {
   ...props.fieldOptions,
   type: 'checkbox',
