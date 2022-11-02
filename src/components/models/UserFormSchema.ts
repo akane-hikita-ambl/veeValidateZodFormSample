@@ -1,6 +1,16 @@
 import * as zod from 'zod';
 import { GENDER } from '@/components/enums/Gender';
-import { INTEREST } from '@/components/enums/Interest';
+
+/**
+ * カスタムエラーメッセージ
+ * node_modules\zod\lib\locales\en.js参考に
+ */
+const customErrorMap: zod.ZodErrorMap = (issue, ctx) => {
+  // true/falseチェックボックス用メッセージ
+  if (issue.code === zod.ZodIssueCode.invalid_literal) {
+    return { message: 'チェック必須です' };
+  }
+};
 
 export const UserFormSchema = zod.object({
   name: zod.string().max(15, { message: '15文字以内で入力してください' }).optional(),
@@ -18,4 +28,5 @@ export const UserFormSchema = zod.object({
   // TODO 初回に未選択でsubmitした場合、送られるのがundefinedのためinvalid_typeエラーとなり、メッセージが「Required」と出力されてしまう
   interest: zod.string().array().min(1, { message: '必須項目です。' }),
   email: zod.string({ required_error: '必須項目です' }).email({ message: 'メールアドレスの形式で入力してください' }),
+  confirm: zod.literal(true, { errorMap: customErrorMap }),
 });
