@@ -16,12 +16,6 @@ const handleChange = (e: Event) => {
 };
 </script>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
-</script>
-
 <template>
-  <input type="text" v-bind="$attrs" :value="props.modelValue" @input="handleChange" />
+  <input type="text" :value="props.modelValue" @input="handleChange" />
 </template>
