@@ -5,7 +5,7 @@ import Label from '@/components/atoms/Label.vue';
 import ErrorMessage from '@/components/atoms/ErrorMessage.vue';
 
 const props = defineProps<{
-  label: string;
+  label?: string;
   name: string;
 }>();
 
