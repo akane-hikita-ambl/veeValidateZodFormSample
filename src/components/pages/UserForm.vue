@@ -62,6 +62,14 @@ const onSubmit = handleSubmit((formValues) => {
         <FormTextField name="email" placeholder="test@example.co.jp" />
       </FormContentGroup>
 
+      <FormContentGroup name="confirm">
+        <FormCheckBox name="confirm" :value="true" id="confirm" :fieldOptions="{ uncheckedValue: false }">
+          <template #checkLabel>
+            <Label label="確認しました" for="confirm" />
+          </template>
+        </FormCheckBox>
+      </FormContentGroup>
+
       <button type="submit">送信</button>
     </form>
   </div>
