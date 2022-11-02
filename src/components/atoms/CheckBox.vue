@@ -31,7 +31,9 @@ const handleChange = (e: Event) => {
     return;
   }
 
+  // 配列以外の場合
   const falsy = typeof props.value === 'boolean' ? false : '';
+  // チェックされている時は、その値。されていない時はfalsyな値
   const value = target.checked ? props.value : falsy;
 
   emit('update:modelValue', value);
