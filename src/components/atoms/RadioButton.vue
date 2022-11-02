@@ -4,7 +4,6 @@ import { computed } from 'vue';
 const props = defineProps<{
   value: string;
   modelValue: string;
-  errorMessage?: string;
 }>();
 
 const isChecked = computed(() => props.modelValue === props.value);
@@ -22,12 +21,6 @@ const handleChange = (e: Event) => {
 };
 </script>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
-</script>
-
 <template>
-  <input type="radio" :value="props.value" :checked="isChecked" @change="handleChange" v-bind="$attrs" />
+  <input type="radio" :value="props.value" :checked="isChecked" @change="handleChange" />
 </template>
