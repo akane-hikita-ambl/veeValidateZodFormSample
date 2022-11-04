@@ -13,8 +13,8 @@ const customErrorMap: zod.ZodErrorMap = (issue, ctx) => {
 };
 
 export const UserFormSchema = zod.object({
-  name: zod.string().max(15, { message: '15文字以内で入力してください' }).optional(),
-  userName: zod
+  userName: zod.string().max(15, { message: '15文字以内で入力してください' }).optional(),
+  userID: zod
     .string({ required_error: '必須項目です' })
     .regex(/^[a-zA-Z0-9]+[a-zA-Z0-9_-]+$/, {
       message: '半角英数字記号（_-）で入力してください。記号は先頭の配置不可です。',

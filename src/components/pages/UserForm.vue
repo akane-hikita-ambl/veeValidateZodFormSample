@@ -34,12 +34,12 @@ const onSubmit = handleSubmit((formValues) => {
 <template>
   <div>
     <form @submit="onSubmit">
-      <FormContentGroup label="名前" name="name">
-        <FormTextField name="name" placeholder="野村 太郎" />
+      <FormContentGroup label="名前" name="userName">
+        <FormTextField name="userName" placeholder="野村 太郎" />
       </FormContentGroup>
 
-      <FormContentGroup label="ユーザー名" name="userName">
-        <FormTextField name="userName" placeholder="nomura_taro" />
+      <FormContentGroup label="ユーザーID" name="userID">
+        <FormTextField name="userID" placeholder="nomura_taro" />
       </FormContentGroup>
 
       <FormContentGroup label="性別" name="gender">
