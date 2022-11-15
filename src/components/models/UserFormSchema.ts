@@ -5,10 +5,10 @@ import { GENDER } from '@/components/enums/Gender';
  * カスタムエラーメッセージ
  * node_modules\zod\lib\locales\en.js参考に
  */
-const customErrorMap: zod.ZodErrorMap = (error, ctx) => {
-  switch (error.code) {
+const customErrorMap: zod.ZodErrorMap = (issue, ctx) => {
+  switch (issue.code) {
     case zod.ZodIssueCode.invalid_type:
-      if (error.received === zod.ZodParsedType.undefined) {
+      if (issue.received === zod.ZodParsedType.undefined) {
         return { message: '必須項目です' };
       } else {
         return { message: '値に誤りがあります' };
@@ -22,19 +22,19 @@ const customErrorMap: zod.ZodErrorMap = (error, ctx) => {
       return { message: 'チェック必須です' };
 
     case zod.ZodIssueCode.too_big:
-      return { message: `${error.inclusive}文字以内で入力してください` };
+      return { message: `${issue.inclusive}文字以内で入力してください` };
 
     case zod.ZodIssueCode.too_small:
-      if (error.type === 'array') {
-        return { message: `${error.minimum}つ以上チェックしてください` };
+      if (issue.type === 'array') {
+        return { message: `${issue.minimum}つ以上チェックしてください` };
       }
-      return { message: `${error.minimum}文字以上で入力してください` };
+      return { message: `${issue.minimum}文字以上で入力してください` };
 
     case zod.ZodIssueCode.invalid_string:
-      if (error.validation === 'email') {
+      if (issue.validation === 'email') {
         return { message: 'メールアドレスの形式で入力してください' };
       }
-      if (error.validation === 'regex') {
+      if (issue.validation === 'regex') {
         return { message: '半角英数字記号（_-）で入力してください。記号は先頭の配置不可です。' };
       }
   }
